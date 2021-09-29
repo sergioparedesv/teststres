@@ -11,6 +11,8 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
         <link href="css/style.css" rel="stylesheet" />
+        <script src="js/gauge.min.js"></script>
+
     </head>
     <body>
         <div class="d-flex" id="wrapper">
@@ -198,32 +200,76 @@ if($_POST) {
     }
 
 
-
-
-    echo($visitor_name. "<br>");
-    echo($visitor_email. "<br>");
-    $resultado = $respuesta_1 + $respuesta_2 + $respuesta_3 + $respuesta_4 + $respuesta_5  + $respuesta_6 + $respuesta_7 + $respuesta_8 + $respuesta_9 + $respuesta_10 + $respuesta_11 + $respuesta_12 + $respuesta_13 + $respuesta_14 + $respuesta_15 + $respuesta_16 + $respuesta_17 + $respuesta_18 + $respuesta_19 + $respuesta_20 + $respuesta_21 + $respuesta_22 + $respuesta_23 + $respuesta_24 + $respuesta_25;
-    $resultado = $resultado*0.8;
-
-    echo("Puntaje de estres :");
-    echo($resultado);
-    switch(true) { 
-    case ($resultado <= 25):
-        echo "<font color='#58D68D'> No sufre de estres"; // <font color="#80BFFF">
-        break;
-    case ($resultado >= 26 && $resultado <= 49):
-        echo "<font color='#239B56'> Bajo"; // <font color="#80BFFF">
-        break;
-    case ($resultado >= 50 && $resultado <= 70):
-        echo "<font color='#FFC300'> Medio"; // <font color="#80BFFF">
-        break;
-    case ($resultado >= 71 && $resultado <= 80):
-        echo "<font color='#FF5733'> Alto"; // <font color="#80BFFF">
-        break;
-    case ($resultado >= 81):
-        echo "<font color='#C70039'> Extremo"; // <font color="#80BFFF">
-        break; 
-  }
+    
+    ?>
+    
+                <div class="row">
+                    <div class="col-2 col-md-2 col-xs-12">
+                        <div style="margin-top:40%; margin-left: 5%">
+                        <?php            
+                            echo($visitor_name. "<br>");
+                            echo($visitor_email. "<br>");
+                            $resultado = $respuesta_1 + $respuesta_2 + $respuesta_3 + $respuesta_4 + $respuesta_5  + $respuesta_6 + $respuesta_7 + $respuesta_8 + $respuesta_9 + $respuesta_10 + $respuesta_11 + $respuesta_12 + $respuesta_13 + $respuesta_14 + $respuesta_15 + $respuesta_16 + $respuesta_17 + $respuesta_18 + $respuesta_19 + $respuesta_20 + $respuesta_21 + $respuesta_22 + $respuesta_23 + $respuesta_24 + $respuesta_25;
+                            $resultado = $resultado*0.8;
+                            
+                            echo("Puntaje de estres :");
+                            echo($resultado);
+                            switch(true) { 
+                                case ($resultado <= 25):
+                                    echo "<font color='#58D68D'> No sufre de estres</font>"; // <font color="#80BFFF">
+                                    break;
+                                case ($resultado >= 26 && $resultado <= 49):
+                                    echo "<font color='#239B56'> Bajo</font>"; // <font color="#80BFFF">
+                                    break;
+                                case ($resultado >= 50 && $resultado <= 70):
+                                    echo "<font color='#FFC300'> Medio</font>"; // <font color="#80BFFF">
+                                    break;
+                                case ($resultado >= 71 && $resultado <= 80):
+                                    echo "<font color='#FF5733'> Alto</font>"; // <font color="#80BFFF">
+                                    break;
+                                case ($resultado >= 81):
+                                    echo "<font color='#C70039'> Extremo</font>"; // <font color="#80BFFF">
+                                    break; 
+                              }
+                              
+                        ?>
+                        </div>    
+                    </div>
+                    <div class="col-8 col-md-8 col-xs-12" style="text-align: left">
+                        <canvas style="margin-left:10%" id="canvas-id" data-type="linear-gauge"
+                                data-width="120"
+                                data-height="400"
+                                data-units="°C"
+                                data-min-value="0"
+                                data-start-angle="90"
+                                data-ticks-angle="180"
+                                data-value-box="false"
+                                data-max-value="100"
+                                data-major-ticks="0,10,20,30,40,50,60,70,80,90,100"
+                                data-minor-ticks="2"
+                                data-stroke-ticks="true"
+                                data-highlights='[ {"from": 70, "to": 100, "color": "rgba(200, 50, 50, .75)"} ]'
+                                data-color-plate="#fff"
+                                data-border-shadow-width="0"
+                                data-borders="false"
+                                data-needle-type="arrow"
+                                data-needle-width="2"
+                                data-needle-circle-size="7"
+                                data-needle-circle-outer="true"
+                                data-needle-circle-inner="false"
+                                data-animation-duration="1500"
+                                data-animation-rule="linear"
+                                data-bar-width="10"
+                                data-value=<?php echo $resultado?>
+                        ></canvas>          
+                    </div>
+                </div>           
+                
+                
+    
+      
+    <?php
+    
 
 
     /*
